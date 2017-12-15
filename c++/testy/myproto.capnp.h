@@ -14,21 +14,21 @@
 namespace capnp {
 namespace schemas {
 
-CAPNP_DECLARE_SCHEMA(d62b928a6ef28b48);
+CAPNP_DECLARE_SCHEMA(d58ca8dfc68c30f4);
 
 }  // namespace schemas
 }  // namespace capnp
 
 
-struct MyMsg {
-  MyMsg() = delete;
+struct MyProto {
+  MyProto() = delete;
 
   class Reader;
   class Builder;
   class Pipeline;
 
   struct _capnpPrivate {
-    CAPNP_DECLARE_STRUCT_HEADER(d62b928a6ef28b48, 1, 2)
+    CAPNP_DECLARE_STRUCT_HEADER(d58ca8dfc68c30f4, 1, 2)
     #if !CAPNP_LITE
     static constexpr ::capnp::_::RawBrandedSchema const* brand() { return &schema->defaultBrand; }
     #endif  // !CAPNP_LITE
@@ -37,9 +37,9 @@ struct MyMsg {
 
 // =======================================================================================
 
-class MyMsg::Reader {
+class MyProto::Reader {
 public:
-  typedef MyMsg Reads;
+  typedef MyProto Reads;
 
   Reader() = default;
   inline explicit Reader(::capnp::_::StructReader base): _reader(base) {}
@@ -74,9 +74,9 @@ private:
   friend class ::capnp::Orphanage;
 };
 
-class MyMsg::Builder {
+class MyProto::Builder {
 public:
-  typedef MyMsg Builds;
+  typedef MyProto Builds;
 
   Builder() = delete;  // Deleted to discourage incorrect usage.
                        // You can explicitly initialize to nullptr instead.
@@ -118,9 +118,9 @@ private:
 };
 
 #if !CAPNP_LITE
-class MyMsg::Pipeline {
+class MyProto::Pipeline {
 public:
-  typedef MyMsg Pipelines;
+  typedef MyProto Pipelines;
 
   inline Pipeline(decltype(nullptr)): _typeless(nullptr) {}
   inline explicit Pipeline(::capnp::AnyPointer::Pipeline&& typeless)
@@ -136,88 +136,88 @@ private:
 
 // =======================================================================================
 
-inline  ::uint32_t MyMsg::Reader::getId() const {
+inline  ::uint32_t MyProto::Reader::getId() const {
   return _reader.getDataField< ::uint32_t>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS);
 }
 
-inline  ::uint32_t MyMsg::Builder::getId() {
+inline  ::uint32_t MyProto::Builder::getId() {
   return _builder.getDataField< ::uint32_t>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS);
 }
-inline void MyMsg::Builder::setId( ::uint32_t value) {
+inline void MyProto::Builder::setId( ::uint32_t value) {
   _builder.setDataField< ::uint32_t>(
       ::capnp::bounded<0>() * ::capnp::ELEMENTS, value);
 }
 
-inline bool MyMsg::Reader::hasName() const {
+inline bool MyProto::Reader::hasName() const {
   return !_reader.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
 }
-inline bool MyMsg::Builder::hasName() {
+inline bool MyProto::Builder::hasName() {
   return !_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS).isNull();
 }
-inline  ::capnp::Text::Reader MyMsg::Reader::getName() const {
+inline  ::capnp::Text::Reader MyProto::Reader::getName() const {
   return ::capnp::_::PointerHelpers< ::capnp::Text>::get(_reader.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
-inline  ::capnp::Text::Builder MyMsg::Builder::getName() {
+inline  ::capnp::Text::Builder MyProto::Builder::getName() {
   return ::capnp::_::PointerHelpers< ::capnp::Text>::get(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
-inline void MyMsg::Builder::setName( ::capnp::Text::Reader value) {
+inline void MyProto::Builder::setName( ::capnp::Text::Reader value) {
   ::capnp::_::PointerHelpers< ::capnp::Text>::set(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS), value);
 }
-inline  ::capnp::Text::Builder MyMsg::Builder::initName(unsigned int size) {
+inline  ::capnp::Text::Builder MyProto::Builder::initName(unsigned int size) {
   return ::capnp::_::PointerHelpers< ::capnp::Text>::init(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS), size);
 }
-inline void MyMsg::Builder::adoptName(
+inline void MyProto::Builder::adoptName(
     ::capnp::Orphan< ::capnp::Text>&& value) {
   ::capnp::_::PointerHelpers< ::capnp::Text>::adopt(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS), kj::mv(value));
 }
-inline ::capnp::Orphan< ::capnp::Text> MyMsg::Builder::disownName() {
+inline ::capnp::Orphan< ::capnp::Text> MyProto::Builder::disownName() {
   return ::capnp::_::PointerHelpers< ::capnp::Text>::disown(_builder.getPointerField(
       ::capnp::bounded<0>() * ::capnp::POINTERS));
 }
 
-inline bool MyMsg::Reader::hasPets() const {
+inline bool MyProto::Reader::hasPets() const {
   return !_reader.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS).isNull();
 }
-inline bool MyMsg::Builder::hasPets() {
+inline bool MyProto::Builder::hasPets() {
   return !_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS).isNull();
 }
-inline  ::capnp::List< ::capnp::Text>::Reader MyMsg::Reader::getPets() const {
+inline  ::capnp::List< ::capnp::Text>::Reader MyProto::Reader::getPets() const {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::get(_reader.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS));
 }
-inline  ::capnp::List< ::capnp::Text>::Builder MyMsg::Builder::getPets() {
+inline  ::capnp::List< ::capnp::Text>::Builder MyProto::Builder::getPets() {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::get(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS));
 }
-inline void MyMsg::Builder::setPets( ::capnp::List< ::capnp::Text>::Reader value) {
+inline void MyProto::Builder::setPets( ::capnp::List< ::capnp::Text>::Reader value) {
   ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::set(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS), value);
 }
-inline void MyMsg::Builder::setPets(::kj::ArrayPtr<const  ::capnp::Text::Reader> value) {
+inline void MyProto::Builder::setPets(::kj::ArrayPtr<const  ::capnp::Text::Reader> value) {
   ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::set(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS), value);
 }
-inline  ::capnp::List< ::capnp::Text>::Builder MyMsg::Builder::initPets(unsigned int size) {
+inline  ::capnp::List< ::capnp::Text>::Builder MyProto::Builder::initPets(unsigned int size) {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::init(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS), size);
 }
-inline void MyMsg::Builder::adoptPets(
+inline void MyProto::Builder::adoptPets(
     ::capnp::Orphan< ::capnp::List< ::capnp::Text>>&& value) {
   ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::adopt(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS), kj::mv(value));
 }
-inline ::capnp::Orphan< ::capnp::List< ::capnp::Text>> MyMsg::Builder::disownPets() {
+inline ::capnp::Orphan< ::capnp::List< ::capnp::Text>> MyProto::Builder::disownPets() {
   return ::capnp::_::PointerHelpers< ::capnp::List< ::capnp::Text>>::disown(_builder.getPointerField(
       ::capnp::bounded<1>() * ::capnp::POINTERS));
 }

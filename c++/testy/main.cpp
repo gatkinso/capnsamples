@@ -31,7 +31,7 @@ void test1()
 {
     capnp::MallocMessageBuilder message;
     
-    MyMsg::Builder mmbuilder = message.initRoot<MyMsg>();
+    MyProto::Builder mmbuilder = message.initRoot<MyProto>();
 
     capnp::List<::capnp::Text>::Builder mypets = mmbuilder.initPets(3);
 
@@ -45,7 +45,7 @@ void test1()
 
 /////////////////
 
-    MyMsg::Reader mmreader = message.getRoot<MyMsg>();
+    MyProto::Reader mmreader = message.getRoot<MyProto>();
 
     std::cout << mmreader.getId() << std::endl;
     std::cout << mmreader.getName().cStr() << std::endl;
@@ -69,7 +69,7 @@ void test1()
 
 int main(int argc, const char* argv[])
 {
-	std::cout << "Hello Capn Proto" << std::endl;
+	std::cout << "Hello Capn Proto!" << std::endl;
 
 	test1();
 
