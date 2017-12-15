@@ -20,20 +20,21 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-set(TGT_NAME testy)
+project (capnsamples)
 
-set(HEADER_FILES
-    myproto.capnp.h
-)
+cmake_minimum_required(VERSION 3.5)
 
-set(SOURCE_FILES
-    main.cpp
+if(MSVC)
+    set(IDIRS $ENV{HOMEPATH}/apps/capnproto/include)
+    set(LDIRS $ENV{HOMEPATH}/apps/capnproto/lib)
+endif()
+if(UNIX)
+    add_compile_options(-std=c++11)
+    set(IDIRS $ENV{HOME}/apps/capnproto/include)
+    set(LDIRS $ENV{HOME}/apps/capnproto/lib)
+endif()
 
-    myproto.capnp.c++
-)
+include_directories(${IDIRS})
+link_directories(${LDIRS})
 
-add_executable(${TGT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
-
-target_link_libraries(${TGT_NAME} capnp kj capnp-json kj-async)
-
-install(TARGETS ${TGT_NAME} DESTINATION ${CMAKE_BINARY_DIR}/bin)
+add_subdirectory(c++/testy)
