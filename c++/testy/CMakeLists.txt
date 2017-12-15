@@ -28,7 +28,7 @@ if(MSVC)
     set(IDIRS $ENV{HOMEPATH}/apps/capnproto/include)
 endif()
 if(UNIX)
-    set(IDIRS $$ENV{HOME}/apps/capnproto/include)
+    set(IDIRS $ENV{HOME}/apps/capnproto/include)
 endif()
 
 include_directories(
@@ -39,7 +39,7 @@ if(MSVC)
      set(LDIRS $ENV{HOMEPATH}/apps/capnproto/lib)
 endif()
 if(UNIX)
-     set(LDIRS $$ENV{HOME}/apps/capnproto/lib)
+     set(LDIRS $ENV{HOME}/apps/capnproto/lib)
 endif()
 
 link_directories(
@@ -47,13 +47,13 @@ link_directories(
 )
 
 set(HEADER_FILES
-    myproto.cp.h
+    myproto.capnp.h
 )
 
 set(SOURCE_FILES
     main.cpp
 
-    myproto.cp.c++
+    myproto.capnp.c++
 )
 
 if(UNIX)

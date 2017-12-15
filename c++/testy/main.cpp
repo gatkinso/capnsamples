@@ -25,15 +25,15 @@ SOFTWARE.
 #include <capnp/message.h>
 #include <capnp/compat/json.h>
 
-#include "myproto.cp.h"
+#include "myproto.capnp.h"
 
 void test1()
 {
-    ::capnp::MallocMessageBuilder message;
+    capnp::MallocMessageBuilder message;
     
     MyMsg::Builder mmbuilder = message.initRoot<MyMsg>();
 
-    ::capnp::List<::capnp::Text>::Builder mypets = mmbuilder.initPets(3);
+    capnp::List<::capnp::Text>::Builder mypets = mmbuilder.initPets(3);
 
     mmbuilder.setId(123);
 
