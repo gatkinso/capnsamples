@@ -34,6 +34,6 @@ set(SOURCE_FILES
 
 add_executable(${TGT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
-target_link_libraries(${TGT_NAME} capnp kj capnp-json kj-async)
+target_link_libraries(${TGT_NAME} capnp-json capnp kj-async kj)
 
 install(TARGETS ${TGT_NAME} DESTINATION ${CMAKE_BINARY_DIR}/bin)
