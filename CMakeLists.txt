@@ -38,3 +38,4 @@ include_directories(${IDIRS})
 link_directories(${LDIRS})
 
 add_subdirectory(c++/testy)
+add_subdirectory(c++/hello_capn)

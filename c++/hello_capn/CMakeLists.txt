@@ -20,11 +20,23 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-@0x9a2868d7410f3819;
+set(TGT_NAME hello_capn)
 
-struct MyProto
-{
-    id @0 :UInt32;
-    name @1 :Text;
-    pets @2 :List(Text);
- }
+set(HEADER_FILES
+    hello.capnp.h
+)
+
+set(SOURCE_FILES
+    main.cpp
+
+    hello.capnp.c++
+)
+
+add_executable(${TGT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+
+# Take care - on Linux the order of the link dependencies seems
+# to matter.  On Windows and Mac it doesn't seem to (as much).
+# While not a tutorial on CMake I was recently nipped by this.
+target_link_libraries(${TGT_NAME} capnp kj)
+
+install(TARGETS ${TGT_NAME} DESTINATION ${CMAKE_BINARY_DIR}/bin)

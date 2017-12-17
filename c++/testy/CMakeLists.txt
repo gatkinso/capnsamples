@@ -34,6 +34,9 @@ set(SOURCE_FILES
 
 add_executable(${TGT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
+# Take care - on Linux the order of the link dependencies seems
+# to matter.  On Windows and Mac it doesn't seem to (as much).
+# While not a tutorial on CMake I was recently nipped by this.
 target_link_libraries(${TGT_NAME} capnp-json capnp kj-async kj)
 
 install(TARGETS ${TGT_NAME} DESTINATION ${CMAKE_BINARY_DIR}/bin)
